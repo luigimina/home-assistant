@@ -400,6 +400,7 @@ class CoverCapabilities(AlexaEntity):
             cover.DEVICE_CLASS_WINDOW,
             cover.DEVICE_CLASS_AWNING,
             cover.DEVICE_CLASS_SHUTTER,
+            cover.DEVICE_CLASS_GATE,
         ):
             return [DisplayCategory.EXTERIOR_BLIND]
 
