@@ -200,15 +200,16 @@ class AlexaCapabilityResource:
     https://developer.amazon.com/docs/device-apis/resources-and-assets.html#capability-resources
     """
 
-    def __init__(self, labels):
+    def __init__(self, labels, italian=False):
         """Initialize an Alexa resource."""
         self._resource_labels = []
+        self._italian = italian
         for label in labels:
             self._resource_labels.append(label)
 
     def serialize_capability_resources(self):
         """Return capabilityResources object serialized for an API response."""
-        return self.serialize_labels(self._resource_labels)
+        return self.serialize_labels(self._resource_labels, self._italian)
 
     @staticmethod
     def serialize_configuration():
@@ -216,14 +217,23 @@ class AlexaCapabilityResource:
         return []
 
     @staticmethod
-    def serialize_labels(resources):
+    def serialize_labels(resources, italian=False):
         """Return resource label objects for friendlyNames serialized for an API response."""
         labels = []
         for label in resources:
             if label in AlexaGlobalCatalog.__dict__.values():
                 label = {"@type": "asset", "value": {"assetId": label}}
             else:
-                label = {"@type": "text", "value": {"text": label, "locale": "en-US"}}
+                if not italian:
+                    label = {
+                        "@type": "text",
+                        "value": {"text": label, "locale": "en-US"},
+                    }
+                else:
+                    label = {
+                        "@type": "text",
+                        "value": {"text": label, "locale": "it-IT"},
+                    }
 
             labels.append(label)
 
@@ -236,11 +246,12 @@ class AlexaModeResource(AlexaCapabilityResource):
     https://developer.amazon.com/docs/device-apis/resources-and-assets.html#capability-resources
     """
 
-    def __init__(self, labels, ordered=False):
+    def __init__(self, labels, ordered=False, italian=False):
         """Initialize an Alexa modeResource."""
-        super().__init__(labels)
+        super().__init__(labels, italian)
         self._supported_modes = []
         self._mode_ordered = ordered
+        self._italian = italian
 
     def add_mode(self, value, labels):
         """Add mode to the supportedModes object."""
@@ -252,7 +263,7 @@ class AlexaModeResource(AlexaCapabilityResource):
         for mode in self._supported_modes:
             result = {
                 "value": mode["value"],
-                "modeResources": self.serialize_labels(mode["labels"]),
+                "modeResources": self.serialize_labels(mode["labels"], self._italian),
             }
             mode_resources.append(result)
 

@@ -1263,7 +1263,7 @@ class AlexaModeController(AlexaCapability):
         # Cover Position Resources
         if self.instance == f"{cover.DOMAIN}.{cover.ATTR_POSITION}":
             self._resource = AlexaModeResource(
-                ["Position", AlexaGlobalCatalog.SETTING_OPENING], False
+                ["Stato", AlexaGlobalCatalog.SETTING_OPENING], False, True
             )
             self._resource.add_mode(
                 f"{cover.ATTR_POSITION}.{cover.STATE_OPEN}",
@@ -1274,8 +1274,8 @@ class AlexaModeController(AlexaCapability):
                 [AlexaGlobalCatalog.VALUE_CLOSE],
             )
             self._resource.add_mode(
-                f"{cover.ATTR_POSITION}.custom",
-                ["Custom", AlexaGlobalCatalog.SETTING_PRESET],
+                f"{cover.ATTR_POSITION}.stopped",
+                ["Fermato", AlexaGlobalCatalog.SETTING_PRESET],
             )
             return self._resource.serialize_capability_resources()
 
