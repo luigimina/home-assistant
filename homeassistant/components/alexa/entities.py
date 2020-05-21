@@ -386,7 +386,7 @@ class CoverCapabilities(AlexaEntity):
         """Return the display categories for this entity."""
         device_class = self.entity.attributes.get(ATTR_DEVICE_CLASS)
         if device_class in (cover.DEVICE_CLASS_GARAGE, cover.DEVICE_CLASS_GATE):
-            return [DisplayCategory.GARAGE_DOOR]
+            return [DisplayCategory.OTHER]
         if device_class == cover.DEVICE_CLASS_DOOR:
             return [DisplayCategory.DOOR]
         if device_class in (
@@ -399,7 +399,6 @@ class CoverCapabilities(AlexaEntity):
             cover.DEVICE_CLASS_WINDOW,
             cover.DEVICE_CLASS_AWNING,
             cover.DEVICE_CLASS_SHUTTER,
-            cover.DEVICE_CLASS_GATE,
         ):
             return [DisplayCategory.EXTERIOR_BLIND]
 
