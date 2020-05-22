@@ -1249,7 +1249,7 @@ class OpenCloseTrait(_Trait):
     COVER_2FA = (
         cover.DEVICE_CLASS_DOOR,
         cover.DEVICE_CLASS_GARAGE,
-        cover.DEVICE_CLASS_GATE,
+        # cover.DEVICE_CLASS_GATE,
     )
 
     name = TRAIT_OPENCLOSE
