@@ -51,7 +51,8 @@ REQUIRES = [
     "requests==2.24.0",
     "ruamel.yaml==0.15.100",
     "voluptuous==0.11.7",
-    "voluptuous-serialize==2.3.0",
+    "voluptuous-serialize==2.4.0",
+    "yarl==1.4.2",
 ]
 
 MIN_PY_VERSION = ".".join(map(str, hass_const.REQUIRED_PYTHON_VER))
