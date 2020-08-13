@@ -1270,7 +1270,7 @@ class AlexaModeController(AlexaCapability):
                 f"{cover.ATTR_POSITION}.{cover.STATE_CLOSED}", ["Chiuso"],
             )
             self._resource.add_mode(
-                f"{cover.ATTR_POSITION}.custom", ["Fermato"],
+                f"{cover.ATTR_POSITION}.custom", ["Bloccato"],
             )
             return self._resource.serialize_capability_resources()
 
