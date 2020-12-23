@@ -412,10 +412,17 @@ class AlexaLockController(AlexaCapability):
         "en-AU",
         "en-CA",
         "en-GB",
+        "en-IN",
         "en-US",
         "es-ES",
+        "es-MX",
+        "es-US",
+        "fr-CA",
+        "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def name(self):
@@ -454,6 +461,7 @@ class AlexaSceneController(AlexaCapability):
 
     supported_locales = {
         "de-DE",
+        "en-AU",
         "en-CA",
         "en-GB",
         "en-IN",
@@ -461,6 +469,7 @@ class AlexaSceneController(AlexaCapability):
         "es-ES",
         "fr-FR",
         "it-IT",
+        "ja-JP",
     }
 
     def __init__(self, entity, supports_deactivation):
@@ -488,8 +497,10 @@ class AlexaBrightnessController(AlexaCapability):
         "en-US",
         "es-ES",
         "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def name(self):
@@ -532,8 +543,10 @@ class AlexaColorController(AlexaCapability):
         "en-US",
         "es-ES",
         "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def name(self):
@@ -581,8 +594,10 @@ class AlexaColorTemperatureController(AlexaCapability):
         "en-US",
         "es-ES",
         "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def name(self):
@@ -669,7 +684,18 @@ class AlexaSpeaker(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-speaker.html
     """
 
-    supported_locales = {"de-DE", "en-AU", "en-CA", "en-GB", "en-IN", "en-US"}
+    supported_locales = {
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "es-MX",
+        "it-IT",
+        "ja-JP",
+    }
 
     def name(self):
         """Return the Alexa API name of this interface."""
@@ -716,7 +742,16 @@ class AlexaStepSpeaker(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-stepspeaker.html
     """
 
-    supported_locales = {"de-DE", "en-AU", "en-CA", "en-GB", "en-IN", "en-US"}
+    supported_locales = {
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "it-IT",
+    }
 
     def name(self):
         """Return the Alexa API name of this interface."""
@@ -866,7 +901,16 @@ class AlexaContactSensor(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-contactsensor.html
     """
 
-    supported_locales = {"en-CA", "en-US", "it-IT"}
+    supported_locales = {
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "it-IT",
+        "ja-JP",
+    }
 
     def __init__(self, hass, entity):
         """Initialize the entity."""
@@ -905,7 +949,17 @@ class AlexaMotionSensor(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-motionsensor.html
     """
 
-    supported_locales = {"en-CA", "en-US", "it-IT"}
+    supported_locales = {
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "it-IT",
+        "ja-JP",
+        "pt-BR",
+    }
 
     def __init__(self, hass, entity):
         """Initialize the entity."""
@@ -955,6 +1009,7 @@ class AlexaThermostatController(AlexaCapability):
         "fr-FR",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def __init__(self, hass, entity):
@@ -1127,7 +1182,7 @@ class AlexaSecurityPanelController(AlexaCapability):
         "fr-FR",
         "it-IT",
         "ja-JP",
-        "pt_BR",
+        "pt-BR",
     }
 
     def __init__(self, hass, entity):
@@ -1504,7 +1559,7 @@ class AlexaRangeController(AlexaCapability):
             min_value = float(self.entity.attributes[input_number.ATTR_MIN])
             max_value = float(self.entity.attributes[input_number.ATTR_MAX])
             precision = float(self.entity.attributes.get(input_number.ATTR_STEP, 1))
-            unit = self.entity.attributes.get(input_number.ATTR_UNIT_OF_MEASUREMENT)
+            unit = self.entity.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
 
             self._resource = AlexaPresetResource(
                 ["Value", AlexaGlobalCatalog.SETTING_PRESET],
@@ -1618,6 +1673,7 @@ class AlexaToggleController(AlexaCapability):
         "fr-FR",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def __init__(self, entity, instance, non_controllable=False):
@@ -1674,7 +1730,21 @@ class AlexaChannelController(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-channelcontroller.html
     """
 
-    supported_locales = {"de-DE", "en-AU", "en-CA", "en-GB", "en-IN", "en-US"}
+    supported_locales = {
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "es-MX",
+        "fr-FR",
+        "hi-IN",
+        "it-IT",
+        "ja-JP",
+        "pt-BR",
+    }
 
     def name(self):
         """Return the Alexa API name of this interface."""
@@ -1688,7 +1758,6 @@ class AlexaDoorbellEventSource(AlexaCapability):
     """
 
     supported_locales = {
-        "en-US",
         "de-DE",
         "en-AU",
         "en-CA",
@@ -1697,8 +1766,10 @@ class AlexaDoorbellEventSource(AlexaCapability):
         "en-US",
         "es-ES",
         "es-MX",
+        "es-US",
         "fr-CA",
         "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
     }
@@ -1718,7 +1789,7 @@ class AlexaPlaybackStateReporter(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-playbackstatereporter.html
     """
 
-    supported_locales = {"de-DE", "en-GB", "en-US", "fr-FR"}
+    supported_locales = {"de-DE", "en-GB", "en-US", "es-MX", "fr-FR"}
 
     def name(self):
         """Return the Alexa API name of this interface."""
@@ -1756,7 +1827,7 @@ class AlexaSeekController(AlexaCapability):
     https://developer.amazon.com/docs/device-apis/alexa-seekcontroller.html
     """
 
-    supported_locales = {"de-DE", "en-GB", "en-US"}
+    supported_locales = {"de-DE", "en-GB", "en-US", "es-MX"}
 
     def name(self):
         """Return the Alexa API name of this interface."""
@@ -1828,7 +1899,7 @@ class AlexaEqualizerController(AlexaCapability):
     https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-equalizercontroller.html
     """
 
-    supported_locales = {"en-US"}
+    supported_locales = {"de-DE", "en-IN", "en-US", "es-ES", "it-IT", "ja-JP", "pt-BR"}
     VALID_SOUND_MODES = {
         "MOVIE",
         "MUSIC",
@@ -1924,8 +1995,10 @@ class AlexaCameraStreamController(AlexaCapability):
         "en-US",
         "es-ES",
         "fr-FR",
+        "hi-IN",
         "it-IT",
         "ja-JP",
+        "pt-BR",
     }
 
     def name(self):
